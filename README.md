@@ -96,15 +96,6 @@ My goal is not to eliminate AI, but to ensure that I can understand, produce, de
 
 ```
 swe-rebuild/
-├── journal/
-├── javascript/
-├── typescript/
-├── react/
-├── node/
-├── databases/
-├── docker/
-├── aws/
-└── projects/swe-rebuild/
 │
 ├── README.md
 │

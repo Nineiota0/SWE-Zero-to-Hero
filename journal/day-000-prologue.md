@@ -11,15 +11,15 @@ become a better SWE.
 
 ## Where I Am Right Now
 
-** Some technologies that I feel comfotable using are: **
+**Some technologies that I feel comfotable using are:**
 - C++
 - Some LeetCode (NeetCode) / DSA
 
-** Some technologies that I've used but don't deeply understand are: **
+**Some technologies that I've used but don't deeply understand are:**
 - GitHub
 - HTML / CSS
 
-** Technologies and Concepts I want to learn are: **
+**Technologies and Concepts I want to learn are:**
 - JavaScript
 - TypeScript
 - React
@@ -40,7 +40,7 @@ become a better SWE.
 - Software architecture
 - Debugging unfamiliar codebases
 
-** By the end of this journey, I want to be able to: **
+**By the end of this journey, I want to be able to:**
 
 - Build software independently
 - Open an unfamilar repository and understand how it works
