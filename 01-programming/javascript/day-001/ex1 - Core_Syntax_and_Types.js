@@ -9,7 +9,7 @@
 
 // use const where appropriate and let for variables that may change
 
-const name = "Brian";
+const name = "NineIota";
 const age = 23;
 const isLearningJS = true;
 const language = "C++";
