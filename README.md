@@ -53,7 +53,7 @@ For more about where I am starting, why I am doing this and what I hope to accom
 - [ ] Deployment
 - [ ] Logging / monitoring
 
-** NOTE: ** 
+**NOTE:** 
 I am not treating an X mark as I have "finished" a concept of technology, I am treating it as something like "I have completed the foundational study and built something using it independtently"
 
 ## Projects
@@ -72,7 +72,7 @@ Daily entries can be found [Here](./journal/).
 
 ## AI Usage
 
-** During this rebuild: **
+**During this rebuild:**
 
 1. I attempt problems myself before asking AI.
 2. I can ask AI for explanations and documentation.
@@ -94,6 +94,7 @@ My goal is not to eliminate AI, but to ensure that I can understand, produce, de
 
 ## Rough Repository Structure
 
+```
 swe-rebuild/
 ├── journal/
 ├── javascript/
@@ -151,6 +152,7 @@ swe-rebuild/
 │   └── ci-cd/
 │
 └── projects/
+```
 
 ## Progress
 
