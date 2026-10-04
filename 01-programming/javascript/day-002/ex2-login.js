@@ -28,17 +28,28 @@ const username = "NineIota";
 const password = "javascript123";
 const isActive = true;
 
+// const username = "";
+// const password = "javascript123";
+// const isActive = true;
 
+// const username = "NineIota";
+// const password = "";
+// const isActive = true;
+// 
+// const username = "NineIota";
+// const password = "javascript123";
+// const isActive = false;
+// 
+// const username = "";
+// const password = "";
+// const isActive = true;
 // ------------------------------------------------------------
 // Prediction
 // ------------------------------------------------------------
 
 // With the values above, should login succeed?
 //
-// Answer:
-
-
-
+// Answer: Yes the given user information meets all the required information therefore login should succeed
 
 // ------------------------------------------------------------
 // Implementation
@@ -61,10 +72,14 @@ const isActive = true;
 
 // CODE HERE:
 
-
-
-
-
+if (username && password && isActive)
+{
+    console.log("Login successful")
+}
+else
+{
+    console.log("Login failed")
+}
 
 // ------------------------------------------------------------
 // Test Cases
@@ -77,7 +92,7 @@ const isActive = true;
 // password = "javascript123"
 // isActive = true
 //
-// Expected:
+// Expected: Login successful
 //
 
 
@@ -86,7 +101,7 @@ const isActive = true;
 // password = "javascript123"
 // isActive = true
 //
-// Expected:
+// Expected: Login failed (no username)
 //
 
 
@@ -95,7 +110,7 @@ const isActive = true;
 // password = ""
 // isActive = true
 //
-// Expected:
+// Expected: login failed (no password)
 //
 
 
@@ -104,7 +119,7 @@ const isActive = true;
 // password = "javascript123"
 // isActive = false
 //
-// Expected:
+// Expected: Login failed (not active)
 //
 
 
@@ -113,7 +128,7 @@ const isActive = true;
 // password = ""
 // isActive = false
 //
-// Expected:
+// Expected: Login failed (none of the conditions are true)
 
 
 
@@ -124,20 +139,14 @@ const isActive = true;
 
 // 1. Explain your if-condition in plain English.
 //
-// Answer:
-
-
-
+// Answer: If there exists a username and password and the account is active then the login is successful, otherwise login fails
 
 // 2. Why can you check `username` directly instead of writing
 //    something like:
 //
 //    username !== ""
 //
-// Answer:
-
-
-
+// Answer: We can check username directly using truthiness to see if the value is actaully there and filled out
 
 // 3. What would happen if username contained:
 //
@@ -145,9 +154,10 @@ const isActive = true;
 //
 // Would it be truthy or falsy?
 //
-// Prediction:
+// Prediction: Yes, login would be successful
 //
-// Why?
+// Why? This is because instead of taking a number, we are taking a string instead so truthiness would read that
+// input as a string and see that it is not empty, null or unfilled.
 
 
 
@@ -160,4 +170,4 @@ const isActive = true;
 //
 //    "false"
 //
-// Answer:
+// Answer: The first false is a boolean value and the other is a string.

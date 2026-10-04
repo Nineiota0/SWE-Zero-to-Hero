@@ -490,3 +490,6 @@ else
 // falsy would equate to anything that is otherwise null, empty or would be false flag like 0 or -1.
 // However some experiments on here like -1 an empty object and array prove to be truthy so I believe
 // falsy to be any value that is not defined/ decalred, so things like null, 0 or undefined.
+
+// CORRECTION: Truthy and falsy describe how a value behaves when JavaScript converts it to a boolean context.
+// So if JS interprets val as a bool, does it behave as true or false?
