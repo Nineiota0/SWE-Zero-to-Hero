@@ -149,4 +149,4 @@ swe-rebuild/
 
 **Started:** October 2026  
 **Current Phase:** JavaScript Fundamentals  
-**Current Day:** Day 4
+**Current Day:** Day 5
