@@ -110,13 +110,9 @@ console.log()
 
 const emptyArray = [];
 
-const isPositive = (num) => num > 0;
-const isEven = (num) => num % 2 === 0;
-const TrueCallback = () => true;
-
-const findResult = emptyArray.find(isPositive);
-const someResult = emptyArray.some(isEven);
-const everyResult = emptyArray.every(TrueCallback);
+const findResult = emptyArray.find(num => num > 0);
+const someResult = emptyArray.some(num => num % 2 === 0);
+const everyResult = emptyArray.every(() => true);
 
 console.log(findResult);
 console.log(someResult); 
