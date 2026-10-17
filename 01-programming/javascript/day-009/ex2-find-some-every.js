@@ -19,12 +19,17 @@ const users = [
 // A2. Find the first inactive user.
 // A3. Find the user whose id is 99.
 //
-// Predict what A3 returns.
+// Predict what A3 returns: since user id 99 does not exist yet, i think it will return undefined
 //
 // CODE HERE:
 
-
-
+const id2 = users.find(users => users.id === 2);
+console.log(id2)
+const inactiveUser = users.find(users => users.isActive === false);
+console.log(inactiveUser)
+const id99 = users.find(users => users.id === 99);
+console.log(id99)
+console.log()
 
 // ============================================================
 // PART B — some()
@@ -46,8 +51,13 @@ const orders = [
 //
 // CODE HERE:
 
-
-
+const unpaidOders = orders.some(orders => orders.isPaid === false);
+console.log(unpaidOders)
+const over200 = orders.some(orders => orders.total > 200);
+console.log(over200)
+const exactly100 = orders.some(orders => orders.total === 100);
+console.log(exactly100)
+console.log()
 
 // ============================================================
 // PART C — every()
@@ -68,8 +78,13 @@ const tasks = [
 //
 // CODE HERE:
 
-
-
+const allCompleted = tasks.every(tasks => tasks.completed === true);
+console.log(allCompleted)
+const nonemptyTitle = tasks.every(tasks => tasks.title);
+console.log(nonemptyTitle)
+const allIncomplete = tasks.every(tasks => tasks.completed === false);
+console.log(allIncomplete)
+console.log()
 
 // ============================================================
 // PART D — Empty Array Predictions
@@ -85,17 +100,27 @@ const tasks = [
 //
 // Predictions:
 //
-// find:
-// some:
-// every:
+// find: undefined since it searches for the first element but arrau is empty
+// some: false since array is empty it cannot find any matches
+// every: true since array is empty therefore nothing can violate the condition
 //
 // Create your own valid callbacks and test them.
 //
 // CODE HERE:
 
+const emptyArray = [];
 
+const isPositive = (num) => num > 0;
+const isEven = (num) => num % 2 === 0;
+const TrueCallback = () => true;
 
+const findResult = emptyArray.find(isPositive);
+const someResult = emptyArray.some(isEven);
+const everyResult = emptyArray.every(TrueCallback);
 
+console.log(findResult);
+console.log(someResult); 
+console.log(everyResult);
 // ============================================================
 // AI USAGE
 // ============================================================
@@ -104,4 +129,4 @@ const tasks = [
 // 🟡 Implementation-specific hints
 // 🔴 AI solution/code
 //
-// Answer:
+// Answer: 🟢 Independent
