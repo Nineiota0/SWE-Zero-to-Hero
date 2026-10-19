@@ -31,8 +31,13 @@
 
 // CODE HERE:
 
+const studentGrades = new Map();
+studentGrades.set("Alice", 95);
+studentGrades.set("Bob", 82);
+studentGrades.set("Charlie", 76);
 
-
+console.log(studentGrades)
+console.log()
 
 // ------------------------------------------------------------
 // A2 — Retrieving Values
@@ -49,8 +54,11 @@
 //
 // CODE HERE:
 
-
-
+console.log(studentGrades.get("Alice")) // 95
+console.log(studentGrades.get("Bob")) // 82
+console.log(studentGrades.has("Charlie")) // true
+console.log(studentGrades.has("David")) // false
+console.log()
 
 // ============================================================
 // PART B — Updating and Removing Entries
@@ -66,8 +74,12 @@
 //
 // CODE HERE:
 
+studentGrades.set("Bob", 90);
+studentGrades.delete("Charlie");
 
-
+console.log(studentGrades.size)
+console.log(studentGrades)
+console.log()
 
 // ============================================================
 // PART C — Iterating Over a Map
@@ -92,8 +104,11 @@ const inventory = new Map([
 //
 // CODE HERE:
 
-
-
+for (const [item, count] of inventory)
+{
+    console.log(item + ": " + count)
+}
+console.log()
 
 // ============================================================
 // PART D — Non-String Keys
@@ -117,9 +132,15 @@ const user2 = { id: 2, name: "Bob" };
 //
 // CODE HERE:
 
+const loginCounts = new Map();
+loginCounts.set(user1, 3);
+loginCounts.set(user2, 5);
 
+console.log(loginCounts.get(user1)); // Prints: 3
+console.log(loginCounts.get(user2)); // Prints: 5
 
-
+console.log(loginCounts)
+console.log()
 // ------------------------------------------------------------
 // D2 — Object Identity Prediction
 // ------------------------------------------------------------
@@ -132,18 +153,17 @@ const user2 = { id: 2, name: "Bob" };
 //
 // Will it return 3 or undefined?
 //
-// Prediction:
+// Prediction: undefined 
 //
-// Explain why:
-//
-// Answer:
+// Explain why: JS compares objects by their unique memory location (reference) not by their contents
+// compares object identity rather than physical memory locations
+// Answer: undefined
 //
 // Test your prediction.
 
 // CODE HERE:
 
-
-
+console.log(loginCounts.get({ id: 1, name: "Alice" }))
 
 // ============================================================
 // AI USAGE
@@ -153,4 +173,4 @@ const user2 = { id: 2, name: "Bob" };
 // Yellow: Implementation-specific hints
 // Red: AI-provided solution
 //
-// Answer:
+// Answer: 🟢 Independent
