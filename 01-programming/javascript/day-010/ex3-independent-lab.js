@@ -340,10 +340,51 @@ assert.deepStrictEqual(userLoginMapClone, mapSnapshot);
 // Do not simply repeat console.log() without
 // checking expected values.
 
-
 // CODE HERE:
 
+// functions:
+//
+// getUniqueUsers(logins)
+// countLogins(logins)
+// getLoginCount(loginMap, username)
+// getFrequentUsers(loginMap, minimum)
 
+const expectedLoginCounts = new Map([
+    ["NineIota", 2],
+    ["Jason", 5],
+    ["Emily", 1],
+    ["Thai", 3],
+    ["Kianna", 2],
+    ["Ryu", 2],
+    ["Tammy", 1]
+]);
+
+const userLoginMap1 = countLogins(loginHistory);
+
+assert.deepStrictEqual(getUniqueUsers(loginHistory), [
+    "NineIota", "Jason", "Emily", "Thai", "Kianna", "Ryu", "Tammy"
+]);
+
+assert.deepStrictEqual(getUniqueUsers([]), []);
+assert.deepStrictEqual(countLogins([]), new Map());
+
+assert.deepStrictEqual(userLoginMap1, expectedLoginCounts);
+
+assert.equal(getLoginCount(userLoginMap, "Emily"), 1);
+assert.equal(getLoginCount(userLoginMap, "Hoa"), 0);
+
+assert.deepStrictEqual(getFrequentUsers(userLoginMap, 2), [
+    "NineIota", "Jason", "Thai", "Kianna", "Ryu"
+]);
+
+assert.deepStrictEqual(getFrequentUsers(userLoginMap, 10), []);
+assert.deepStrictEqual(getFrequentUsers(new Map(), 2), []);
+assert.deepStrictEqual(getFrequentUsers(new Map(), 0), []);
+
+assert.deepStrictEqual(
+    getFrequentUsers(userLoginMap, 0),
+    getUniqueUsers(loginHistory)
+);
 
 // ============================================================
 // PART H — Verify No Mutation
@@ -370,8 +411,18 @@ assert.deepStrictEqual(userLoginMapClone, mapSnapshot);
 //
 // CODE HERE:
 
+// function are not modified:
 
+const loginHistorySnapshot = structuredClone(loginHistory);
+const loginMapSnapshot = structuredClone(userLoginMap);
 
+getUniqueUsers(loginHistory);
+countLogins(loginHistory);
+getLoginCount(userLoginMap, "NineIota");
+getFrequentUsers(userLoginMap, 2);
+
+assert.deepStrictEqual(loginHistory, loginHistorySnapshot);
+assert.deepStrictEqual(userLoginMap, loginMapSnapshot);
 
 // ============================================================
 // PART I — Independent Debugging
@@ -397,18 +448,18 @@ assert.deepStrictEqual(userLoginMapClone, mapSnapshot);
 //
 // Record:
 //
-// Bug introduced:
+// Bug introduced: for getLoginCount(loginMap, username) I changed the return to 1 instead of 0
 //
-// Expected failure:
+// Expected failure: The missing-user assertion for "Hoa" fails because getLoginCount() returns 1 instead of 0.
 //
-// Actual error:
+// Actual error: AssertionError [ERR_ASSERTION]: Expected values to be strictly equal: 1 !== 0
+// Actual: 1; expected: 0
 //
-// Fix:
+// Fix: Fix: Restore the missing-user return value to 0. Then run the assertions again and confirm they pass.
 //
 // Do not leave the intentional bug in your final code.
 
-
-
+assert.equal(getLoginCount(userLoginMap, "Hoa"), 0)
 
 // ============================================================
 // FINAL REFLECTION
@@ -423,9 +474,11 @@ assert.deepStrictEqual(userLoginMapClone, mapSnapshot);
 // Answer only what was meaningful to your learning.
 //
 // NOTES:
-
-
-
+//
+// the function countLogins(logins) was pretty challenging to implement
+// no my test cases solidified that my functions were returning as expected
+// You should choose set when looking for a unqiue set of items/ objects 
+// map should be used for assigning key to value items/ objects like names to numbers
 
 // ============================================================
 // AI USAGE
@@ -435,4 +488,4 @@ assert.deepStrictEqual(userLoginMapClone, mapSnapshot);
 // 🟡 Assisted — Implementation-specific hints
 // 🔴 Solution — AI provided implementation
 //
-// Answer:
+// Answer: 🟢 Independent
