@@ -28,13 +28,13 @@ let b = a;
 //
 // Predict both values.
 //
-// Prediction:
+// Prediction: a = 10, b = 50
 //
 // CODE HERE:
 
-
-
-
+b = 50;
+console.log(a, b)
+console.log()
 // ============================================================
 // PART B — Object References
 // ============================================================
@@ -58,13 +58,15 @@ const originalPlayer = {
 //
 // Predict originalPlayer.health.
 //
-// Prediction:
+// Prediction: both original and copied players will print { username: 'NineIota', health: 25 }
 //
 // CODE HERE:
 
+const copiedPlayer = originalPlayer;
+copiedPlayer.health = 25;
 
-
-
+console.log(originalPlayer, copiedPlayer)
+console.log()
 // ============================================================
 // PART C — Array References
 // ============================================================
@@ -85,13 +87,15 @@ const originalNumbers = [1, 2, 3];
 //
 // Predict originalNumbers.
 //
-// Prediction:
+// Prediction: both arrays will print [ 1, 2, 3, 4 ]
 //
 // CODE HERE:
 
+const copiedNumbers = originalNumbers;
+copiedNumbers.push(4);
 
-
-
+console.log(originalNumbers, copiedNumbers)
+console.log()
 // ============================================================
 // PART D — Object Equality
 // ============================================================
@@ -109,16 +113,16 @@ const user3 = user1;
 //
 // Predictions:
 //
-// 1.
-// 2.
+// 1. false -> compares two diff objects even though same attributes
+// 2. true -> references and compares the same object
 //
 // Print both comparisons.
 //
 // CODE HERE:
 
-
-
-
+console.log(user1 === user2)
+console.log(user1 === user3)
+console.log()
 // ============================================================
 // PART E — Mutation vs Reassignment
 // ============================================================
@@ -156,12 +160,27 @@ const account = {
 //
 // Predict the final owner and balance.
 //
-// Prediction:
+// Prediction: { owner: "Alex", balance: 500 }
+// this is because in changeBalance, we are directly changing the original 
+// object in memory, while replaceAccount only takes a copy of the object
+// and creates an entirely new one, so now the function inside points to a new bob object
 //
 // CODE HERE:
 
+function changeBalance(account)
+{
+    account.balance = 500;
+}
 
+function replaceAccount(account)
+{
+    account = { owner: "Bob", balance: 0};
+}
 
+changeBalance(account);
+replaceAccount(account);
+
+console.log(account)
 
 // ============================================================
 // AI USAGE
@@ -171,4 +190,4 @@ const account = {
 // 🟡 Implementation-specific hints
 // 🔴 AI solution/code
 //
-// Answer:
+// Answer: 🟢 Independent
