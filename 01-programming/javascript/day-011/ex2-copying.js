@@ -42,8 +42,10 @@ const player = {
 
 // CODE HERE:
 
-
-
+const shallowPlayer = { ...player };
+console.log(player)
+console.log(shallowPlayer)
+console.log()
 
 // ------------------------------------------------------------
 // A2 — Object Identity Predictions
@@ -55,18 +57,19 @@ const player = {
 //
 // player === shallowPlayer
 //
-// Prediction:
+// Prediction: false
 //
 // player.stats === shallowPlayer.stats
 //
-// Prediction:
+// Prediction: true -> cecause spread creates shallow copy, copying outer obj properties but nested are still shared references
 //
 // Use console.log() to verify both predictions.
 
 // CODE HERE:
 
-
-
+console.log(player === shallowPlayer)
+console.log(player.stats === shallowPlayer.stats)
+console.log()
 
 // ------------------------------------------------------------
 // A3 — Nested Mutation
@@ -81,7 +84,7 @@ const player = {
 // player.stats.health = ?
 // shallowPlayer.stats.health = ?
 //
-// Prediction:
+// Prediction: both change to 25 since nested objs are still shared refs
 //
 // Print both values.
 //
@@ -91,8 +94,10 @@ const player = {
 
 // CODE HERE:
 
-
-
+shallowPlayer.stats.health = 25;
+console.log(player.stats.health)
+console.log(shallowPlayer.stats.health)
+console.log()
 
 // ============================================================
 // PART B — Deep Copying
@@ -122,8 +127,7 @@ const originalUser = {
 //
 // CODE HERE:
 
-
-
+const deepCopiedUser = structuredClone(originalUser);
 
 // ------------------------------------------------------------
 // B2 — Modify the Deep Copy
@@ -140,12 +144,16 @@ const originalUser = {
 //
 // Predict the original user's theme and skills.
 //
-// Prediction:
+// Prediction: The original user's attributes will stay the same but deepCopiedUser will be changed since we made a deep copy and modified teh values
 //
 // CODE HERE:
 
+deepCopiedUser.preferences.theme = "light";
+deepCopiedUser.skills.push("Node.js");
 
-
+console.log(deepCopiedUser)
+console.log(originalUser)
+console.log()
 
 // ------------------------------------------------------------
 // B3 — Verify Object Identity
@@ -155,22 +163,24 @@ const originalUser = {
 //
 // originalUser === deepCopiedUser
 //
-// Prediction:
+// Prediction: false
 //
 // originalUser.preferences === deepCopiedUser.preferences
 //
-// Prediction:
+// Prediction: false
 //
 // originalUser.skills === deepCopiedUser.skills
 //
-// Prediction:
+// Prediction: false
 //
 // Verify using console.log().
 
 // CODE HERE:
 
-
-
+console.log(originalUser === deepCopiedUser)
+console.log(originalUser.preferences === deepCopiedUser.preferences)
+console.log(originalUser.skills === deepCopiedUser.skills)
+console.log()
 
 // ============================================================
 // PART C — Arrays Containing Objects
