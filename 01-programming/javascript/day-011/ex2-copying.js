@@ -1,3 +1,5 @@
+const assert = require("node:assert/strict");
+
 // ============================================================
 // SWE REBUILD — DAY 11
 // Exercise 2: Shallow vs. Deep Copying
@@ -208,18 +210,20 @@ const products = [
 //
 // products === copiedProducts
 //
-// Prediction:
+// Prediction: false
 //
 // products[0] === copiedProducts[0]
 //
-// Prediction:
+// Prediction: true
 //
 // Verify both comparisons.
 
 // CODE HERE:
 
-
-
+const copiedProducts = [...products];
+console.log(products === copiedProducts)
+console.log(products[0] === copiedProducts[0])
+console.log()
 
 // ------------------------------------------------------------
 // C2 — Modify a Nested Object
@@ -234,14 +238,16 @@ const products = [
 // products[0].price = ?
 // copiedProducts[0].price = ?
 //
-// Prediction:
+// Prediction: both values print to 100
 //
 // Print both values.
 
 // CODE HERE:
 
-
-
+copiedProducts[0].price = 100
+console.log(products[0].price)
+console.log(copiedProducts[0].price)
+console.log()
 
 // ============================================================
 // PART D — Immutable Nested Updates
@@ -283,8 +289,18 @@ const account = {
 //
 // CODE HERE:
 
-
-
+const updatedAccount = {
+    ...account,
+    settings: {
+        ...account.settings,
+        theme: "light"
+    }
+};
+console.log(account.settings.theme);
+console.log(updatedAccount.settings.theme);
+console.log(updatedAccount);
+console.log(account);
+console.log();
 
 // ------------------------------------------------------------
 // D2 — Verify Your Implementation
@@ -304,8 +320,13 @@ const account = {
 
 // CODE HERE:
 
-
-
+console.log(account.settings.theme === "dark");
+console.log(updatedAccount.settings.theme === "light");
+console.log(account === updatedAccount);
+console.log(account.settings === updatedAccount.settings);
+console.log(account.owner === "Alex" && updatedAccount.owner === "Alex");
+console.log(account.balance === 100 && updatedAccount.balance === 100);
+console.log();
 
 // ============================================================
 // PART E — Independent Prediction Challenge
@@ -329,31 +350,33 @@ copy.profile.city = "San Diego";
 
 // E1. What is original.name?
 //
-// Prediction:
+// Prediction: "Alice"
 
 
 // E2. What is original.profile.city?
 //
-// Prediction:
+// Prediction: "San Diego"
 
 
 // E3. What is copy.name?
 //
-// Prediction:
+// Prediction: "Bob"
 
 
 // E4. Are original.profile and copy.profile
 //     the same object?
 //
-// Prediction:
+// Prediction: yes
 
 
 // Verify your predictions.
 //
 // CODE HERE:
 
-
-
+console.log(original.name)
+console.log(original.profile.city)
+console.log(copy.name)
+console.log(copy.profile === original.profile)
 
 // ============================================================
 // AI USAGE
@@ -363,4 +386,4 @@ copy.profile.city = "San Diego";
 // 🟡 Implementation-specific hints
 // 🔴 AI solution/code
 //
-// Answer:
+// Answer: 🟢 Independent
